@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- DB schema will be updated if needed -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+<!--        <property name="current_session_context_class">thread</property>-->
+        <property name="show_sql">true</property>
+        <mapping resource="User.hbm.xml"/>
+        <mapping class="App.vo.User"/>
+        <mapping resource="Wallet.hbm.xml"/>
+        <mapping class="App.vo.Wallet"/>
+        <mapping resource="Book.hbm.xml"/>
+        <mapping class="App.vo.Book"/>
+        <mapping resource="UsersBooks.hbm.xml"/>
+        <mapping class="App.vo.UsersBooks"/>
+        <mapping resource="StudyPlan.hbm.xml"/>
+        <mapping class="App.vo.StudyPlan"/>
+        <mapping resource="Word.hbm.xml"/>
+        <mapping class="App.vo.Word"/>
+        <mapping resource="ErrorWord.hbm.xml"/>
+        <mapping class="App.vo.ErrorWord"/>
+    </session-factory>
+</hibernate-configuration>

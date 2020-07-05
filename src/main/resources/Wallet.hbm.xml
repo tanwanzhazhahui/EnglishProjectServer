@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="App.vo.Wallet" table="wallet">
+        <id name="wid" type="integer">
+            <generator class="foreign">
+                <param name="property">user</param>
+            </generator>
+        </id>
+        <property name="money" type="double" length="8" insert="false">
+            <column name="money" default="0.00" scale="2"/>
+        </property>
+        <property name="tradepassword" type="string" length="30" insert="false">
+            <column name="tradepassword" default="'55da564cce6da08679af0ca067772a41'"/>
+        </property>
+        <one-to-one name="user" class="App.vo.User"/>
+    </class>
+</hibernate-mapping>

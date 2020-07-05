@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="App.vo.UsersBooks" table="usersbooks">
+        <id name="ubid" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property name="finishphrase" type="integer" length="11" insert="false">
+            <column name="finishphrase" default="0"/>
+        </property>
+        <property name="deadline" type="string" length="30"/>
+        <many-to-one name="user" class="App.vo.User" column="userid"/>
+        <many-to-one name="book" class="App.vo.Book" column="bid" fetch="join"/>
+        <many-to-one name="studyplan" class="App.vo.StudyPlan" column="spid" fetch="join"/>
+    </class>
+</hibernate-mapping>
